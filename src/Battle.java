@@ -7,7 +7,6 @@ public class Battle {
     public void start() {
         Ashe ashe = new Ashe();
         Graves graves = new Graves();
-        int damage;
 
         Random random = new Random();
 
@@ -59,6 +58,7 @@ public class Battle {
                     ashe.gotHit(graves.strongPunch() - ashe.dodge(graves.getBasicDamage()));
                     break;
                 }
+
             }
             ashe.showHealth();
 
@@ -72,9 +72,6 @@ public class Battle {
                 graves.death();
                 break;
             }
-            else continue;
-
-
         }
 
 
