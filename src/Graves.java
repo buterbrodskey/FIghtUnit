@@ -1,7 +1,7 @@
 public class Graves extends Hero implements Melee {
 
     public Graves() {
-        super("Грейвз", "боец", 1000, 250);
+        super("Грейвз", "боец", 1000, 200);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Graves extends Hero implements Melee {
 
     @Override
     public int raiseShield() {
-        System.out.println(getName() +" блокирует! Потрясающе!");
+        System.out.println(getName() +" блокирует часть урона! Потрясающе!");
         return (int) (getBasicDamage() * 0.5);
     }
 }

@@ -7,13 +7,18 @@ public class Battle {
     public void start() {
         Ashe ashe = new Ashe();
         Graves graves = new Graves();
+        int damage;
 
         Random random = new Random();
 
         int randomAction;
 
+        ashe.run();
+        graves.run();
+
+
         while (true) {
-            randomAction = random.nextInt(ATTACK_METHODS_COUNT * DEFENSE_METHODS_COUNT + 2);
+            randomAction = random.nextInt(ATTACK_METHODS_COUNT * DEFENSE_METHODS_COUNT + ATTACK_METHODS_COUNT); // хочу охватить все комбинации атакующих и защитных методов
 
             switch (randomAction) {
                 case 0: {
@@ -47,11 +52,11 @@ public class Battle {
                     break;
                 }
                 case 2: {
-                    ashe.gotHit(graves.punch() - ashe.dodge(graves.punch()));
+                    ashe.gotHit(graves.punch() - ashe.dodge(graves.getBasicDamage()));
                     break;
                 }
                 case 3: {
-                    ashe.gotHit(graves.strongPunch() - ashe.dodge(graves.strongPunch()));
+                    ashe.gotHit(graves.strongPunch() - ashe.dodge(graves.getBasicDamage()));
                     break;
                 }
             }
@@ -59,10 +64,12 @@ public class Battle {
 
             if (ashe.getHealth() <= 0) {
                 System.out.println("Эш пала! Грейвз победил!");
+                ashe.death();
                 break;
             }
             else if (graves.getHealth() <= 0) {
                 System.out.println("Грейвз пал! Эш победила!");
+                graves.death();
                 break;
             }
             else continue;

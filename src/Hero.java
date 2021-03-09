@@ -25,7 +25,7 @@ public abstract class Hero {
     }
 
     void gotHit(int damage) {
-        System.out.println(name + " получает " + damage + " урона. Неприятно...");
+        System.out.println(name + " получает " + damage + " урона.");
         health -= damage;
     }
 
