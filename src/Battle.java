@@ -40,7 +40,7 @@ public class Battle {
             }
             graves.showHealth();
 
-            randomAction = random.nextInt(ATTACK_METHODS_COUNT * DEFENSE_METHODS_COUNT + 2);
+            randomAction = random.nextInt(ATTACK_METHODS_COUNT * DEFENSE_METHODS_COUNT + ATTACK_METHODS_COUNT);
 
             switch (randomAction) {
                 case 0: {
